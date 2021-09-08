@@ -1,0 +1,29 @@
+version: "3.3"
+services:
+  server:
+    build: .
+    ports: 
+      - "25565:25565"
+    restart: always
+    image: rubenchristoffer/ftb_endeavour:1.5.0
+    volumes: 
+      - ./data/logs:/root/logs
+      - ./data/world:/root/world
+      - ./data/config:/root/config
+      - ./data/journeymap:/root/journeymap
+      - ./data/snapshots-server:/root/snapshots-server
+      - type: bind
+        source: ./data/banned-ips.json
+        target: /root/banned-ips.json
+      - type: bind
+        source: ./data/banned-players.json
+        target: /root/banned-players.json
+      - type: bind
+        source: ./data/server.properties
+        target: /root/server.properties
+      - type: bind
+        source: ./data/whitelist.json
+        target: /root/whitelist.json
+      - type: bind
+        source: ./data/ops.json
+        target: /root/ops.json
