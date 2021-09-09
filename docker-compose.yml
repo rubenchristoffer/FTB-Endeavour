@@ -7,6 +7,7 @@ services:
     restart: always
     image: rubenchristoffer/ftb_endeavour:1.5.0
     volumes: 
+      - ./backups:/root/backups
       - ./data/logs:/root/logs
       - ./data/world:/root/world
       - ./data/config:/root/config
